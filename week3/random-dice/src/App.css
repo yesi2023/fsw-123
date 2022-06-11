@@ -1,0 +1,30 @@
+#dice-board {
+  display:flex;
+  justify-content: center;
+  align-content:center;
+  color: darkslateblue;
+  gap: 15px;
+  margin: 15px;
+  font-size: 90px;
+}
+
+div {
+  display: grid;
+  justify-content: center;
+  
+}
+
+button {
+  color: darkblue;
+  background-color: bisque;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+  color: purple;
+  font-family: cursive;
+
+}
+
