@@ -1,0 +1,19 @@
+li {
+  list-style-type: none;
+
+}
+
+.divItems {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+button {
+  margin-left: 5px;
+}
+
