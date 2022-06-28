@@ -13,7 +13,8 @@ function GiphyForm() {
       .then((response) => response.json())
       .then((data) => {
         setImgSrc(data.data[0].images.original.url);
-        setAlt(data.data[0].title).catch((error) => console.log(error));
+        setAlt(data.data[0].title)
+        //.catch((error) => console.log(error));
       });
   }, []);
 
