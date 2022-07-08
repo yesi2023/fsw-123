@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,8 @@
 }
 
 body {
-  font-family: fantasy;
+  font-family: "Elsie", cursive;
+  font-weight: 900;
   background-color: #5983aa;
 }
 
@@ -155,4 +158,20 @@ section {
 
 .popup .content .close:hover {
   background: #223343;
+}
+
+.App {
+  font-family: "Elsie", cursive;
+  text-align: center;
+  height: 200vh;
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .recycledItems,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
 }
