@@ -1,69 +1,24 @@
-import React, { useState } from "react";
-import axios from "axios";
-
-import Search from "./components/Search";
-import Results from "./components/Results";
-import Popup from "./components/Popup";
+//import React, { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import ApiSearch from "./components/ApiSearch";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
 
 function App() {
-  const [state, setState] = useState({
-    s: "",
-    results: [],
-    selected: {},
-  });
-  const apiurl = "http://www.omdbapi.com/?apikey=f15af5af";
-
-  const search = (e) => {
-    if (e.key === "Enter") {
-      axios(apiurl + "&s=" + state.s).then(({ data }) => {
-        let results = data.Search;
-
-        setState((prevState) => {
-          return { ...prevState, results: results };
-        });
-      });
-    }
-  };
-
-  const handleInput = (e) => {
-    let s = e.target.value;
-
-    setState((prevState) => {
-      return { ...prevState, s: s };
-    });
-  };
-
-  const openPopup = (id) => {
-    axios(apiurl + "&i=" + id).then(({ data }) => {
-      let result = data;
-
-      setState((prevState) => {
-        return { ...prevState, selected: result };
-      });
-    });
-  };
-
-  const closePopup = () => {
-    setState((prevState) => {
-      return { ...prevState, selected: {} };
-    });
-  };
-
   return (
     <div className="App">
       <header>
         <h1>Movie Search</h1>
+        <Link to="/search">ApiSearch</Link>
+        <Link to="/">Home</Link>
+        <Link to="/contact">Contact</Link>
       </header>
       <main>
-        <Search handleInput={handleInput} search={search} />
-
-        <Results results={state.results} openPopup={openPopup} />
-
-        {typeof state.selected.Title != "undefined" ? (
-          <Popup selected={state.selected} closePopup={closePopup} />
-        ) : (
-          false
-        )}
+        <Routes>
+          <Route path="/search" element={<ApiSearch/>} />
+          <Route exact path="/" element={<Home/>} />
+          <Route path="/contact" element={<Contact/>} />
+        </Routes>
       </main>
     </div>
   );
